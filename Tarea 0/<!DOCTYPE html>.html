@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal con Header, Body y Footer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Centra el botón de apertura en el medio de la pantalla */
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f2f5;
+    }
+
+    /* Botón principal */
+    .btn-abrir {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estructura principal de la Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+      overflow: hidden;
+      border: 1px solid #ddd;
+    }
+
+    /* 1. HEADER DE LA MODAL (Sirve también para arrastrar) */
+    .modal-header {
+      background-color: #007bff;
+      color: white;
+      padding: 14px 20px;
+      cursor: grab;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .modal-header:active {
+      cursor: grabbing;
+    }
+
+    .modal-header h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .btn-cerrar {
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* 2. BODY DE LA MODAL */
+    .modal-body {
+      padding: 20px;
+      color: #444;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* 3. FOOTER DE LA MODAL */
+    .modal-footer {
+      padding: 12px 20px;
+      background-color: #f8f9fa;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .btn-accion {
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-secundario {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-primario {
+      background-color: #28a745;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botón centrado en la página -->
+  <button id="abrirModal" class="btn-abrir">Abrir Ventana Modal</button>
+
+  <!-- VENTANA MODAL INTERNA -->
+  <div id="miModal" class="modal">
+    
+    <!-- Header interno -->
+    <div id="modalHeader" class="modal-header">
+      <h3>Cabecera (Header)</h3>
+      <span id="cerrarModal" class="btn-cerrar">&times;</span>
+    </div>
+
+    <!-- Body interno -->
+    <div class="modal-body">
+      <p>Este es el <strong>cuerpo de la modal</strong>. Aquí puedes poner textos, campos de formulario o imágenes.</p>
+    </div>
+
+    <!-- Footer interno -->
+    <div class="modal-footer">
+      <button id="btnCancelar" class="btn-accion btn-secundario">Cancelar</button>
+      <button id="btnAceptar" class="btn-accion btn-primario">Aceptar</button>
+    </div>
+
+  </div>
+
+  <script>
+    const modal = document.getElementById('miModal');
+    const btnAbrir = document.getElementById('abrirModal');
+    const btnCerrar = document.getElementById('cerrarModal');
+    const btnCancelar = document.getElementById('btnCancelar');
+    const modalHeader = document.getElementById('modalHeader');
+
+    // Abrir Modal
+    btnAbrir.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modal.style.top = '50%';
+      modal.style.left = '50%';
+      modal.style.transform = 'translate(-50%, -50%)';
+    });
+
+    // Cerrar Modal con la X o con el botón Cancelar
+    const cerrar = () => modal.style.display = 'none';
+    btnCerrar.addEventListener('click', cerrar);
+    btnCancelar.addEventListener('click', cerrar);
+
+    // Lógica para arrastrar tomando el Header interno como manija
+    let isDragging = false;
+    let startX, startY, initialLeft, initialTop;
+
+    modalHeader.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const rect = modal.getBoundingClientRect();
+      
+      modal.style.transform = 'none';
+      modal.style.left = rect.left + 'px';
+      modal.style.top = rect.top + 'px';
+
+      startX = e.clientX;
+      startY = e.clientY;
+      initialLeft = rect.left;
+      initialTop = rect.top;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+
+      modal.style.left = `${initialLeft + deltaX}px`;
+      modal.style.top = `${initialTop + deltaY}px`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  </script>
+
+</body>
+</html>
