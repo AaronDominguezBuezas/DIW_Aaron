@@ -1,0 +1,63 @@
+body {
+  margin: 0px;
+}
+
+.cabecera {
+  color: yellow;
+  background-color: black;
+  height: 10vh;
+  align-content: center;
+}
+
+#contenedor {
+  display: flex;
+  border-radius: 10px;
+}
+
+.navegador {
+  list-style-type: none;
+  background-color: gray;
+  height: 80vh;
+  min-width: 200px;
+  max-width: 200px;
+  text-align: center;
+}
+
+#lista {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 15px;
+}
+
+a:link {
+  color: greenyellow;
+}
+
+a:active {
+  color: greenyellow;
+}
+
+a:visited {
+  color: greenyellow;
+}
+
+a:hover {
+  color: blue;
+}
+
+.cuerpo {
+  color: blueviolet;
+  background-color: rgb(196, 196, 196);
+  height: 80vh;
+  width: 100vw;
+}
+
+.pie {
+  background-color: rgb(167, 167, 167);
+
+  color: red;
+  text-align: center;
+  align-content: center;
+  height: 10vh;
+}
