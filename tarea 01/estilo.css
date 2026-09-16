@@ -1,0 +1,27 @@
+.cabecera {
+  text-align: center;
+}
+
+.izquierda {
+  text-align: left;
+  color: blue;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.centrado {
+  text-align: center;
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.derecha {
+  text-align: right;
+  color: green;
+  font-family:
+    'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: blanchedalmond;
+}
