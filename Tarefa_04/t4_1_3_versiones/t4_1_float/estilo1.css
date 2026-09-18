@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.principal {
+  border: 1;
+  border-color: black;
+  border-style: dotted;
+  height: 100vh;
+  width: 100vw;
+}
+.azul {
+  float: left;
+  background-color: blue;
+  width: 33.33%;
+  height: 100%;
+}
+
+.blanco {
+  float: left;
+  background-color: white;
+  width: 33.33%;
+  height: 100%;
+}
+
+.rojo {
+  float: left;
+  background-color: red;
+  width: 33.33%;
+  height: 100%;
+}

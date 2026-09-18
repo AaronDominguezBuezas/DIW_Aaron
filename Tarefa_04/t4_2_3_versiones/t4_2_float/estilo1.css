@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.Principal {
+  border: 1;
+  height: 100vh;
+  width: 100vw;
+  padding: 50px;
+  border-color: red;
+  border-style: dotted;
+}
+.Amarillo {
+  float: left;
+  background-color: #f3e595;
+  width: 50%;
+  height: 100%;
+  border-color: #3e5050;
+  border-style: solid;
+}
+
+.Azul {
+  float: left;
+  background-color: #dbffff;
+  width: 50%;
+  height: 100%;
+  border-color: #dd686e;
+  border-style: solid;
+}

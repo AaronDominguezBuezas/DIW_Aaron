@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.principal {
+  border: 1;
+  height: 100vh;
+  border-color: black;
+  border-style: dotted;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.azul {
+  background-color: blue;
+}
+
+.blanco {
+  background-color: white;
+}
+
+.rojo {
+  background-color: red;
+}
