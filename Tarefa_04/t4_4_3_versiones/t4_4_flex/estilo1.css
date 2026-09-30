@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.Principal {
+  display: flex;
+  flex-direction: column;
+  border: 1;
+  height: 100vh;
+  width: 100vw;
+  padding: 50px;
+  border-color: black;
+  border-style: dotted;
+  gap: 15px;
+}
+.rojillo {
+  flex: 1;
+  background-color: #ff7856;
+}
+
+.Azul {
+  flex: 1;
+  background-color: #5398e8;
+}

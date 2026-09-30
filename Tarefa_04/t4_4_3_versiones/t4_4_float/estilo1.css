@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.Principal {
+  border: 1;
+  height: 100vh;
+  width: 100vw;
+  padding: 50px;
+  border-color: black;
+  border-style: dotted;
+  gap: 15px;
+}
+.rojillo {
+  background-color: #ff7856;
+  width: 100%;
+  height: 100%;
+}
+
+.Azul {
+  background-color: #5398e8;
+  width: 100%;
+  height: 100%;
+}
